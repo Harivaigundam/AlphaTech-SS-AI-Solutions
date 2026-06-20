@@ -1,0 +1,18 @@
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our process.</h2>
+      <p class="section-subtitle">From concept to deployment in 4 clear steps.</p>
+    </div>
+
+    <div class="process-grid">
+      @for (step of steps; track step.number) {
+        <div class="process-card">
+          <div class="step-number">{{ step.number }}</div>
+          <h3 class="step-title">{{ step.title }}</h3>
+          <p class="step-desc">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

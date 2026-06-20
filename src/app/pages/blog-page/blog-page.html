@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">Blog</p>
+      <h1 class="page-title">Insights & Ideas.</h1>
+      <p class="page-subtitle">Thoughts on AI, software development, and building intelligent systems that transform businesses.</p>
+    </div>
+  </section>
+
+  <section class="blog-listing">
+    <div class="container">
+      <div class="blog-grid">
+        <a *ngFor="let post of posts" [routerLink]="['/blog', post.id]" class="blog-card">
+          <div class="blog-card-inner">
+            <div class="blog-meta">
+              <span class="blog-category">{{ post.category }}</span>
+              <span class="blog-dot">·</span>
+              <span class="blog-read-time">{{ post.readTime }}</span>
+            </div>
+            <h2 class="blog-title">{{ post.title }}</h2>
+            <p class="blog-excerpt">{{ post.excerpt }}</p>
+            <div class="blog-footer">
+              <div class="blog-author">
+                <div class="author-avatar">AT</div>
+                <div class="author-info">
+                  <span class="author-name">{{ post.author }}</span>
+                  <span class="author-date">{{ post.date }}</span>
+                </div>
+              </div>
+              <span class="blog-arrow">→</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-section">
+    <div class="container">
+      <h2 class="newsletter-title">Stay Updated</h2>
+      <p class="newsletter-subtitle">Get the latest insights on AI and software development delivered to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email">
+        <button class="btn-primary newsletter-btn">Subscribe</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

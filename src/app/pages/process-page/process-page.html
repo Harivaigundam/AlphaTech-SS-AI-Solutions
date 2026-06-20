@@ -1,0 +1,232 @@
+<app-header></app-header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">How We Work</p>
+      <h1 class="page-title">Our process.</h1>
+      <p class="page-subtitle">From concept to deployment in 4 clear steps. We make the complex simple and the impossible achievable.</p>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="container">
+      <div class="timeline">
+        <div class="timeline-step" *ngFor="let step of steps; let i = index">
+          <div class="step-connector" *ngIf="i < steps.length - 1"></div>
+          <div class="step-card">
+            <div class="step-number">{{ step.number }}</div>
+            <div class="step-content">
+              <span class="step-duration">{{ step.duration }}</span>
+              <h2 class="step-title">{{ step.title }}</h2>
+              <p class="step-desc">{{ step.description }}</p>
+              <div class="step-deliverables">
+                <span class="deliverable" *ngFor="let deliverable of step.deliverables">{{ deliverable }}</span>
+              </div>
+            </div>
+            <div class="step-preview">
+              <div class="preview-window" [ngClass]="'step-' + step.number">
+                <div class="preview-chrome">
+                  <div class="chrome-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="chrome-title">{{ step.title }}</div>
+                  <div class="chrome-badge">{{ step.duration }}</div>
+                </div>
+
+                <div class="preview-body" *ngIf="step.number === '01'">
+                  <div class="discovery-board">
+                    <div class="board-column">
+                      <div class="column-header">User Stories</div>
+                      <div class="sticky-note yellow">As a user, I want to...</div>
+                      <div class="sticky-note pink">Login with SSO</div>
+                    </div>
+                    <div class="board-column">
+                      <div class="column-header">Research</div>
+                      <div class="sticky-note blue">Competitor analysis</div>
+                      <div class="sticky-note green">User interviews</div>
+                    </div>
+                    <div class="board-column">
+                      <div class="column-header">Goals</div>
+                      <div class="sticky-note purple">Reduce churn 20%</div>
+                      <div class="sticky-note orange">Scale to 10K users</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-body" *ngIf="step.number === '02'">
+                  <div class="design-workspace">
+                    <div class="design-sidebar">
+                      <div class="tool-icon active">✏️</div>
+                      <div class="tool-icon">🎨</div>
+                      <div class="tool-icon">📐</div>
+                      <div class="tool-icon">🖼️</div>
+                    </div>
+                    <div class="design-canvas">
+                      <div class="canvas-element frame">
+                        <div class="frame-header">
+                          <div class="frame-dot"></div>
+                          <div class="frame-dot"></div>
+                          <div class="frame-dot"></div>
+                        </div>
+                        <div class="frame-content">
+                          <div class="mock-nav"></div>
+                          <div class="mock-hero"></div>
+                          <div class="mock-grid">
+                            <div class="mock-card"></div>
+                            <div class="mock-card"></div>
+                            <div class="mock-card"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="design-panel">
+                      <div class="panel-label">Colors</div>
+                      <div class="color-palette">
+                        <div class="color-swatch" style="background: #10b981"></div>
+                        <div class="color-swatch" style="background: #6366f1"></div>
+                        <div class="color-swatch" style="background: #f59e0b"></div>
+                        <div class="color-swatch" style="background: #ec4899"></div>
+                      </div>
+                      <div class="panel-label">Typography</div>
+                      <div class="font-preview">
+                        <div class="font-large">Aa</div>
+                        <div class="font-name">Inter</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-body" *ngIf="step.number === '03'">
+                  <div class="dev-environment">
+                    <div class="code-editor">
+                      <div class="editor-tabs">
+                        <div class="tab active">main.ts</div>
+                        <div class="tab">api.ts</div>
+                        <div class="tab">test.ts</div>
+                      </div>
+                      <div class="editor-content">
+                        <div class="code-line"><span class="line-num">1</span><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div>
+                        <div class="code-line"><span class="line-num">2</span></div>
+                        <div class="code-line"><span class="line-num">3</span><span class="decorator">@Component</span>(&#123;</div>
+                        <div class="code-line"><span class="line-num">4</span>  selector: <span class="string">'app-root'</span>,</div>
+                        <div class="code-line"><span class="line-num">5</span>  template: <span class="string">'&lt;router-outlet&gt;'</span></div>
+                        <div class="code-line"><span class="line-num">6</span>&#125;)</div>
+                      </div>
+                    </div>
+                    <div class="test-panel">
+                      <div class="test-header">
+                        <span class="test-icon">✅</span>
+                        <span class="test-title">Tests Passing</span>
+                      </div>
+                      <div class="test-list">
+                        <div class="test-item pass">✓ Component renders</div>
+                        <div class="test-item pass">✓ Data loads</div>
+                        <div class="test-item pass">✓ Form validates</div>
+                        <div class="test-item running">⟳ Running...</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-body" *ngIf="step.number === '04'">
+                  <div class="deploy-dashboard">
+                    <div class="server-grid">
+                      <div class="server-card online">
+                        <div class="server-status"></div>
+                        <div class="server-name">Production</div>
+                        <div class="server-uptime">99.9% uptime</div>
+                      </div>
+                      <div class="server-card online">
+                        <div class="server-status"></div>
+                        <div class="server-name">API Server</div>
+                        <div class="server-uptime">42ms latency</div>
+                      </div>
+                      <div class="server-card online">
+                        <div class="server-status"></div>
+                        <div class="server-name">Database</div>
+                        <div class="server-uptime">1.2TB stored</div>
+                      </div>
+                    </div>
+                    <div class="deploy-metrics">
+                      <div class="metric-row">
+                        <span class="metric-label">Deployments</span>
+                        <span class="metric-value">247</span>
+                      </div>
+                      <div class="metric-row">
+                        <span class="metric-label">Uptime</span>
+                        <span class="metric-value">99.97%</span>
+                      </div>
+                      <div class="metric-row">
+                        <span class="metric-label">Response Time</span>
+                        <span class="metric-value">42ms</span>
+                      </div>
+                    </div>
+                    <div class="deploy-chart">
+                      <div class="chart-bar" style="height: 60%"></div>
+                      <div class="chart-bar" style="height: 80%"></div>
+                      <div class="chart-bar" style="height: 45%"></div>
+                      <div class="chart-bar" style="height: 90%"></div>
+                      <div class="chart-bar" style="height: 70%"></div>
+                      <div class="chart-bar" style="height: 85%"></div>
+                      <div class="chart-bar" style="height: 95%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="engagement-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Engagement models.</h2>
+        <p class="section-subtitle">Flexible options to match your project needs.</p>
+      </div>
+      <div class="engagement-grid">
+        <div class="engagement-card" *ngFor="let model of engagementModels">
+          <div class="model-type">{{ model.type }}</div>
+          <h3 class="model-name">{{ model.name }}</h3>
+          <p class="model-desc">{{ model.description }}</p>
+          <div class="divider"></div>
+          <ul class="model-features">
+            <li *ngFor="let feature of model.features">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Common questions.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let faq of faqs">
+          <h3 class="faq-question">{{ faq.question }}</h3>
+          <p class="faq-answer">{{ faq.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to start?</h2>
+      <p class="cta-subtitle">Let's discuss your project and find the right engagement model.</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn-primary" (click)="scrollToContact()">Start Your Project →</a>
+        <a routerLink="/services" class="btn-secondary">View Services</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

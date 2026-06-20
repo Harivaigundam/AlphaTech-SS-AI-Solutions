@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">Our Work</p>
+      <h1 class="page-title">Featured solutions.</h1>
+      <p class="page-subtitle">Real results from real projects. See how we've helped businesses transform with AI-powered solutions.</p>
+    </div>
+  </section>
+
+  <section class="case-study" *ngFor="let study of caseStudies">
+    <div class="container">
+      <div class="study-card">
+        <div class="study-preview">
+          <div class="preview-window" [ngClass]="study.id">
+            <div class="preview-header">
+              <div class="preview-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="preview-title">{{ study.title }}</div>
+            </div>
+            <div class="preview-content">
+              <div class="preview-sidebar">
+                <div class="sidebar-icon active">🏠</div>
+                <div class="sidebar-icon">💬</div>
+                <div class="sidebar-icon">📄</div>
+                <div class="sidebar-icon">⚙️</div>
+              </div>
+              <div class="preview-main">
+                <div class="preview-topbar">
+                  <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <span class="search-text">Search...</span>
+                  </div>
+                  <div class="user-avatar">AT</div>
+                </div>
+                <div class="preview-body">
+                  <div class="preview-metric">
+                    <div class="metric-label">Status</div>
+                    <div class="metric-value">Active</div>
+                  </div>
+                  <div class="preview-chart">
+                    <div class="chart-bar" style="height: 40%"></div>
+                    <div class="chart-bar" style="height: 70%"></div>
+                    <div class="chart-bar" style="height: 50%"></div>
+                    <div class="chart-bar" style="height: 90%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="study-content">
+          <div class="study-tags">
+            <span class="study-tag">{{ study.tag }}</span>
+            <span class="study-industry">{{ study.industry }}</span>
+          </div>
+          <h2 class="study-title">{{ study.title }}</h2>
+          <p class="study-desc">{{ study.description }}</p>
+          <div class="study-stats">
+            <div class="stat" *ngFor="let stat of study.stats">
+              <div class="stat-value">{{ stat.value }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Have a project in mind?</h2>
+      <p class="cta-subtitle">Let's discuss how we can help you achieve your goals.</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn-primary" (click)="scrollToContact()">Start Your Project →</a>
+        <a routerLink="/services" class="btn-secondary">View Services</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

@@ -1,0 +1,21 @@
+<section class="tech-section" id="tech">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Technology stack.</h2>
+      <p class="section-subtitle">Modern tools for modern solutions.</p>
+    </div>
+
+    <div class="tech-grid">
+      @for (category of techCategories; track category.name) {
+        <div class="tech-card">
+          <h3 class="category-title">{{ category.name }}</h3>
+          <div class="tech-list">
+            @for (tech of category.technologies; track tech) {
+              <span class="tech-pill">{{ tech }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

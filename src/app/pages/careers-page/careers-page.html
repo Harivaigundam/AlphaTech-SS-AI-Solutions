@@ -1,0 +1,128 @@
+<app-header></app-header>
+
+<main>
+  <section class="page-hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="grid-pattern"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <p class="page-eyebrow">Join Our Team</p>
+        <h1 class="page-title">Build the future<br>of AI with us.</h1>
+        <p class="page-subtitle">We're on a mission to make AI accessible to every business. Join a team of passionate innovators shaping the next generation of intelligent software.</p>
+        <div class="hero-actions">
+          <a href="#positions" class="btn-primary">View Open Positions</a>
+          <a routerLink="/about" class="btn-secondary">Learn About Us</a>
+        </div>
+      </div>
+      <div class="hero-preview">
+        <div class="preview-card">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="card-icon">🚀</div>
+            <div class="card-text">We're hiring across 5 departments</div>
+            <div class="card-badge">5 Open Positions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" *ngFor="let stat of teamStats">
+          <div class="stat-number">{{ stat.number }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our values.</h2>
+        <p class="section-subtitle">What drives us every day.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let value of values">
+          <div class="value-icon">{{ value.icon }}</div>
+          <h3 class="value-title">{{ value.title }}</h3>
+          <p class="value-desc">{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Benefits & perks.</h2>
+        <p class="section-subtitle">We take care of our team so they can focus on building great things.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card" *ngFor="let benefit of benefits">
+          <div class="benefit-icon">{{ benefit.icon }}</div>
+          <h3 class="benefit-title">{{ benefit.title }}</h3>
+          <p class="benefit-desc">{{ benefit.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="positions-section" id="positions">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Open positions.</h2>
+        <p class="section-subtitle">Find your next challenge.</p>
+      </div>
+      <div class="jobs-list">
+        <div class="job-card" *ngFor="let job of jobs" [class.expanded]="selectedJob?.id === job.id" (click)="selectJob(job)">
+          <div class="job-header">
+            <div class="job-info">
+              <h3 class="job-title">{{ job.title }}</h3>
+              <div class="job-meta">
+                <span class="job-department">{{ job.department }}</span>
+                <span class="job-location">{{ job.location }}</span>
+                <span class="job-type">{{ job.type }}</span>
+              </div>
+            </div>
+            <div class="job-salary">{{ job.salary }}</div>
+            <div class="job-expand">
+              <span class="expand-icon" [class.rotated]="selectedJob?.id === job.id">→</span>
+            </div>
+          </div>
+          <div class="job-details" *ngIf="selectedJob?.id === job.id">
+            <p class="job-description">{{ job.description }}</p>
+            <div class="job-requirements">
+              <h4>Requirements:</h4>
+              <ul>
+                <li *ngFor="let req of job.requirements">{{ req }}</li>
+              </ul>
+            </div>
+            <a href="mailto:careers&#64;alphatechss.com?subject=Application: {{ job.title }}" class="btn-apply" (click)="$event.stopPropagation()">Apply Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <h2 class="cta-title">Don't see your role?</h2>
+        <p class="cta-subtitle">We're always looking for talented people. Send us your resume and we'll keep you in mind for future openings.</p>
+        <div class="cta-actions">
+          <a href="mailto:careers&#64;alphatechss.com" class="btn-primary">Send Your Resume →</a>
+          <a routerLink="/contact" class="btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

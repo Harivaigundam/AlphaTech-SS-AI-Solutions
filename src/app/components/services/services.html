@@ -1,0 +1,24 @@
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What we build.</h2>
+      <p class="section-subtitle">Intelligent solutions tailored to your business needs.</p>
+    </div>
+
+    <div class="services-list">
+      @for (service of services; track service.id) {
+        <a [routerLink]="['/services']" [queryParams]="{id: service.id}" class="service-card">
+          <div class="service-icon">{{ service.icon }}</div>
+          <div class="service-content">
+            <div class="service-header">
+              <span class="service-name">{{ service.name }}</span>
+              <span class="service-tag">{{ service.tag }}</span>
+            </div>
+            <p class="service-desc">{{ service.description }}</p>
+          </div>
+          <span class="service-arrow">→</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

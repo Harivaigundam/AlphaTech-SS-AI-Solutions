@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<main>
+  <article class="blog-article" *ngIf="post">
+    <div class="container">
+      <div class="article-header">
+        <a routerLink="/blog" class="back-link">← Back to Blog</a>
+        <div class="article-meta">
+          <span class="article-category">{{ post.category }}</span>
+          <span class="meta-dot">·</span>
+          <span class="article-read-time">{{ post.readTime }}</span>
+          <span class="meta-dot">·</span>
+          <span class="article-date">{{ post.date }}</span>
+        </div>
+        <h1 class="article-title">{{ post.title }}</h1>
+        <p class="article-excerpt">{{ post.excerpt }}</p>
+        <div class="article-author">
+          <div class="author-avatar">AT</div>
+          <div class="author-info">
+            <span class="author-name">{{ post.author }}</span>
+            <span class="author-role">AI Solutions Team</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-tags">
+        <span *ngFor="let tag of post.tags" class="tag">{{ tag }}</span>
+      </div>
+
+      <div class="article-content" [innerHTML]="post.content"></div>
+
+      <div class="article-cta">
+        <div class="cta-card">
+          <h3 class="cta-title">Ready to implement AI in your business?</h3>
+          <p class="cta-text">Our team can help you build intelligent systems tailored to your needs.</p>
+          <div class="cta-actions">
+            <a href="#contact" class="btn-primary" (click)="scrollToContact()">Get in Touch →</a>
+            <a routerLink="/services" class="btn-secondary">Our Services</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-posts">
+        <h3 class="related-title">More Insights</h3>
+        <div class="related-grid">
+          <a *ngFor="let relatedPost of relatedPosts" [routerLink]="['/blog', relatedPost.id]" class="related-card">
+            <span class="related-category">{{ relatedPost.category }}</span>
+            <h4 class="related-name">{{ relatedPost.title }}</h4>
+            <span class="related-read">{{ relatedPost.readTime }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<app-footer></app-footer>

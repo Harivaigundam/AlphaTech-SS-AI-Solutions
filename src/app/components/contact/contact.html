@@ -1,0 +1,85 @@
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <h2 class="section-title">Ready to build something amazing?</h2>
+      <p class="section-subtitle">Let's discuss your project.</p>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <form class="contact-form" (submit)="onSubmit($event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Your name"
+              [(ngModel)]="formData.name"
+              name="name"
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-input"
+              placeholder="you@company.com"
+              [(ngModel)]="formData.email"
+              name="email"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Company</label>
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Your company"
+              [(ngModel)]="formData.company"
+              name="company"
+            >
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input
+              type="tel"
+              class="form-input"
+              placeholder="+1 (555) 000-0000"
+              [(ngModel)]="formData.phone"
+              name="phone"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Description</label>
+          <textarea
+            class="form-textarea"
+            placeholder="Tell us about your project..."
+            [(ngModel)]="formData.message"
+            name="message"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary submit-btn" [disabled]="isSubmitting" [class.success]="submitSuccess">
+          <span *ngIf="!isSubmitting && !submitSuccess">Send Message →</span>
+          <span *ngIf="isSubmitting" class="sending-state">
+            <span class="spinner"></span>
+            Sending...
+          </span>
+          <span *ngIf="submitSuccess" class="success-state">
+            <span class="checkmark">✓</span>
+            Message Sent!
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <p class="contact-email">Or email us directly: <a href="mailto:hello&#64;alphatechss.com">hello&#64;alphatechss.com</a></p>
+  </div>
+</section>

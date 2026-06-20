@@ -1,0 +1,25 @@
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What clients say.</h2>
+      <p class="section-subtitle">Don't take our word for it.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="quote-text">{{ testimonial.quote }}</p>
+          <div class="divider"></div>
+          <div class="testimonial-footer">
+            <div class="author-info">
+              <div class="author-name">{{ testimonial.name }}</div>
+              <div class="author-role">{{ testimonial.role }}</div>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

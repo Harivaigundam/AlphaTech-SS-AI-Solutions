@@ -1,0 +1,319 @@
+<app-header></app-header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">Our Services</p>
+      <h1 class="page-title">What we build.</h1>
+      <p class="page-subtitle">Intelligent solutions tailored to your business needs. From AI applications to mobile apps, we craft software that transforms how businesses operate.</p>
+    </div>
+  </section>
+
+  <section class="service-detail" *ngFor="let service of services" [id]="service.id">
+    <div class="container">
+      <div class="detail-row" [class.reversed]="service.reversed">
+        <div class="detail-content">
+          <div class="service-icon">{{ service.icon }}</div>
+          <h2 class="detail-title">{{ service.title }}</h2>
+          <p class="detail-desc">{{ service.description }}</p>
+          <ul class="feature-list">
+            <li *ngFor="let feature of service.features">{{ feature }}</li>
+          </ul>
+          <a href="#contact" class="btn-primary" (click)="scrollToContact()">Get Started →</a>
+        </div>
+        <div class="detail-preview">
+          <div class="preview-card" [attr.data-service]="service.id">
+            <div class="preview-header">
+              <div class="preview-dots">
+                <span class="pdot red"></span>
+                <span class="pdot yellow"></span>
+                <span class="pdot green"></span>
+              </div>
+              <span class="preview-title">{{ service.title }}</span>
+            </div>
+            <div class="preview-body" [ngSwitch]="service.id">
+              <!-- AI Applications Preview -->
+              <ng-container *ngSwitchCase="'ai-applications'">
+                <div class="preview-metrics">
+                  <div class="pm-card">
+                    <span class="pm-label">Model Accuracy</span>
+                    <span class="pm-value">97.3%</span>
+                    <div class="pm-bar"><div class="pm-fill" style="width: 97%"></div></div>
+                  </div>
+                  <div class="pm-card">
+                    <span class="pm-label">Predictions Today</span>
+                    <span class="pm-value">12,847</span>
+                    <div class="pm-sparkline">
+                      <svg viewBox="0 0 60 24"><polyline points="0,20 10,16 20,18 30,10 40,12 50,6 60,8" fill="none" stroke="#10b981" stroke-width="2"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="preview-chart-area">
+                  <div class="chart-bars">
+                    <div class="cbar" style="height: 40%"></div>
+                    <div class="cbar" style="height: 65%"></div>
+                    <div class="cbar" style="height: 50%"></div>
+                    <div class="cbar active" style="height: 85%"></div>
+                    <div class="cbar" style="height: 70%"></div>
+                    <div class="cbar" style="height: 55%"></div>
+                    <div class="cbar" style="height: 75%"></div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- AI Chatbots Preview -->
+              <ng-container *ngSwitchCase="'ai-chatbots'">
+                <div class="chat-preview">
+                  <div class="chat-msg bot">
+                    <div class="chat-avatar">🤖</div>
+                    <div class="chat-bubble">Hello! How can I help you today?</div>
+                  </div>
+                  <div class="chat-msg user">
+                    <div class="chat-bubble">I need help with my order</div>
+                    <div class="chat-avatar">👤</div>
+                  </div>
+                  <div class="chat-msg bot">
+                    <div class="chat-avatar">🤖</div>
+                    <div class="chat-bubble">I can help with that! Let me look up your order details...</div>
+                  </div>
+                  <div class="chat-typing">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- AI Search Preview -->
+              <ng-container *ngSwitchCase="'ai-search'">
+                <div class="search-preview">
+                  <div class="search-input-box">
+                    <span class="si-icon">🔍</span>
+                    <span class="si-text">Search documents, code, data...</span>
+                  </div>
+                  <div class="search-results">
+                    <div class="sr-item">
+                      <div class="sr-score">98%</div>
+                      <div class="sr-content">
+                        <span class="sr-title">API Documentation v2.4</span>
+                        <span class="sr-excerpt">Authentication endpoints and rate limiting...</span>
+                      </div>
+                    </div>
+                    <div class="sr-item">
+                      <div class="sr-score">94%</div>
+                      <div class="sr-content">
+                        <span class="sr-title">Database Schema Reference</span>
+                        <span class="sr-excerpt">User model relationships and indexing...</span>
+                      </div>
+                    </div>
+                    <div class="sr-item">
+                      <div class="sr-score">91%</div>
+                      <div class="sr-content">
+                        <span class="sr-title">Deployment Guide</span>
+                        <span class="sr-excerpt">Environment variables and CI/CD setup...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- Document Q&A Preview -->
+              <ng-container *ngSwitchCase="'document-qa'">
+                <div class="docqa-preview">
+                  <div class="doc-list">
+                    <div class="doc-item active">
+                      <span class="doc-icon">📄</span>
+                      <span class="doc-name">Q3 Report.pdf</span>
+                      <span class="doc-status">✓</span>
+                    </div>
+                    <div class="doc-item">
+                      <span class="doc-icon">📄</span>
+                      <span class="doc-name">Financials.xlsx</span>
+                      <span class="doc-status">✓</span>
+                    </div>
+                    <div class="doc-item">
+                      <span class="doc-icon">📄</span>
+                      <span class="doc-name">Strategy.docx</span>
+                      <span class="doc-status">⏳</span>
+                    </div>
+                  </div>
+                  <div class="docqa-answer">
+                    <span class="dqa-label">AI Answer:</span>
+                    <span class="dqa-text">Revenue increased 23% QoQ driven by enterprise segment growth...</span>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- RAG Preview -->
+              <ng-container *ngSwitchCase="'rag-applications'">
+                <div class="rag-preview">
+                  <div class="rag-flow">
+                    <div class="rag-step">
+                      <div class="rag-icon">📚</div>
+                      <span>Knowledge Base</span>
+                    </div>
+                    <div class="rag-arrow">→</div>
+                    <div class="rag-step">
+                      <div class="rag-icon">🔍</div>
+                      <span>Retrieval</span>
+                    </div>
+                    <div class="rag-arrow">→</div>
+                    <div class="rag-step">
+                      <div class="rag-icon">🧠</div>
+                      <span>Generation</span>
+                    </div>
+                  </div>
+                  <div class="rag-output">
+                    <div class="rag-source">
+                      <span class="rs-label">Sources:</span>
+                      <span class="rs-tag">Doc 1</span>
+                      <span class="rs-tag">Doc 3</span>
+                      <span class="rs-tag">Doc 7</span>
+                    </div>
+                    <div class="rag-text">Based on your knowledge base, the answer is derived from 3 verified sources with 96% confidence...</div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- Web Applications Preview -->
+              <ng-container *ngSwitchCase="'web-applications'">
+                <div class="webapp-preview">
+                  <div class="wa-nav">
+                    <div class="wa-logo">AT</div>
+                    <div class="wa-links">
+                      <span class="wa-link active">Home</span>
+                      <span class="wa-link">Features</span>
+                      <span class="wa-link">Pricing</span>
+                    </div>
+                    <div class="wa-cta">Get Started</div>
+                  </div>
+                  <div class="wa-hero">
+                    <div class="wa-title">Build Something Amazing</div>
+                    <div class="wa-subtitle">Modern web applications with cutting-edge tech</div>
+                    <div class="wa-buttons">
+                      <span class="wa-btn primary">Start Free</span>
+                      <span class="wa-btn secondary">Learn More</span>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- CRM Preview -->
+              <ng-container *ngSwitchCase="'crm-solutions'">
+                <div class="crm-preview">
+                  <div class="crm-pipeline">
+                    <div class="pipeline-stage">
+                      <span class="ps-label">Lead</span>
+                      <div class="ps-cards">
+                        <div class="ps-card">J. Smith</div>
+                        <div class="ps-card">A. Lee</div>
+                      </div>
+                    </div>
+                    <div class="pipeline-stage">
+                      <span class="ps-label">Qualified</span>
+                      <div class="ps-cards">
+                        <div class="ps-card highlight">M. Corp</div>
+                      </div>
+                    </div>
+                    <div class="pipeline-stage">
+                      <span class="ps-label">Proposal</span>
+                      <div class="ps-cards">
+                        <div class="ps-card">Tech Inc</div>
+                      </div>
+                    </div>
+                    <div class="pipeline-stage">
+                      <span class="ps-label">Closed</span>
+                      <div class="ps-cards">
+                        <div class="ps-card won">Big Co ✓</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- Business Portals Preview -->
+              <ng-container *ngSwitchCase="'business-portals'">
+                <div class="portal-preview">
+                  <div class="portal-sidebar">
+                    <div class="ps-item active">Dashboard</div>
+                    <div class="ps-item">Analytics</div>
+                    <div class="ps-item">Reports</div>
+                    <div class="ps-item">Settings</div>
+                  </div>
+                  <div class="portal-main">
+                    <div class="portal-stat">
+                      <span class="pst-label">Revenue</span>
+                      <span class="pst-value">$48.2K</span>
+                    </div>
+                    <div class="portal-stat">
+                      <span class="pst-label">Users</span>
+                      <span class="pst-value">2,340</span>
+                    </div>
+                    <div class="portal-chart">
+                      <svg viewBox="0 0 100 40" preserveAspectRatio="none">
+                        <polyline points="0,35 20,28 40,30 60,18 80,22 100,12" fill="none" stroke="#10b981" stroke-width="2"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- Mobile Applications Preview -->
+              <ng-container *ngSwitchCase="'mobile-applications'">
+                <div class="mobile-preview">
+                  <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                      <div class="mobile-header">
+                        <span class="mh-title">Alpha Tech</span>
+                        <span class="mh-icon">☰</span>
+                      </div>
+                      <div class="mobile-card">
+                        <div class="mc-icon">📊</div>
+                        <div class="mc-text">
+                          <span class="mc-title">Analytics</span>
+                          <span class="mc-value">+24% this week</span>
+                        </div>
+                      </div>
+                      <div class="mobile-card">
+                        <div class="mc-icon">💬</div>
+                        <div class="mc-text">
+                          <span class="mc-title">Messages</span>
+                          <span class="mc-value">3 new</span>
+                        </div>
+                      </div>
+                      <div class="mobile-nav">
+                        <span class="mn-item active">🏠</span>
+                        <span class="mn-item">📊</span>
+                        <span class="mn-item">💬</span>
+                        <span class="mn-item">⚙️</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- Default fallback -->
+              <ng-container *ngSwitchDefault>
+                <div class="preview-placeholder">{{ service.preview }}</div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Ready to start?</h2>
+      <p class="cta-subtitle">Let's discuss your project and find the right solution.</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn-primary" (click)="scrollToContact()">Start Your Project →</a>
+        <a routerLink="/solutions" class="btn-secondary">View Our Work</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

@@ -1,0 +1,78 @@
+<section class="solutions-section" id="solutions">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured solutions.</h2>
+      <p class="section-subtitle">Real results from real projects.</p>
+    </div>
+
+    <div class="solutions-grid">
+      @for (solution of solutions; track solution.id) {
+        @if (solution.isExternal) {
+          <a [href]="solution.link" target="_blank" rel="noopener" class="solution-card">
+            <div class="solution-preview">
+              <div class="preview-icon">{{ solution.icon }}</div>
+            </div>
+            <div class="solution-info">
+              <div class="solution-tags">
+                <span class="solution-tag">{{ solution.tag }}</span>
+              </div>
+              <h3 class="solution-title">{{ solution.title }}</h3>
+              <p class="solution-desc">{{ solution.description }}</p>
+              <span class="solution-link">Open in new tab →</span>
+            </div>
+          </a>
+        } @else {
+          <a [routerLink]="solution.link" class="solution-card" (click)="handleCardClick(solution); $event.preventDefault()">
+            <div class="solution-preview">
+              <div class="preview-icon">{{ solution.icon }}</div>
+            </div>
+            <div class="solution-info">
+              <div class="solution-tags">
+                <span class="solution-tag">{{ solution.tag }}</span>
+              </div>
+              <h3 class="solution-title">{{ solution.title }}</h3>
+              <p class="solution-desc">{{ solution.description }}</p>
+              <span class="solution-link">
+                @if (solution.showPricingModal) {
+                  Contact for pricing →
+                } @else {
+                  Explore →
+                }
+              </span>
+            </div>
+          </a>
+        }
+      }
+    </div>
+  </div>
+
+  @if (showPricingToast) {
+    <div class="toast-overlay" (click)="closePricingToast()">
+      <div class="pricing-toast" (click)="$event.stopPropagation()">
+        <div class="toast-glow"></div>
+        <button class="toast-close" (click)="closePricingToast()">✕</button>
+        <div class="toast-icon">💎</div>
+        <h3 class="toast-title">Get Custom Pricing</h3>
+        <p class="toast-message">We offer flexible pricing tailored to your needs. Contact our team for a personalized quote and consultation.</p>
+        <div class="toast-features">
+          <div class="feature">
+            <span class="feature-check">✓</span>
+            <span>Free consultation</span>
+          </div>
+          <div class="feature">
+            <span class="feature-check">✓</span>
+            <span>Custom scope & timeline</span>
+          </div>
+          <div class="feature">
+            <span class="feature-check">✓</span>
+            <span>No hidden fees</span>
+          </div>
+        </div>
+        <div class="toast-actions">
+          <a href="mailto:hello&#64;alphatechss.com?subject=Pricing Inquiry" class="btn-primary">Send Email →</a>
+          <a href="tel:+1234567890" class="btn-secondary">Call Us</a>
+        </div>
+      </div>
+    </div>
+  }
+</section>
