@@ -1,5 +1,9 @@
 .page-hero {
   padding: 120px 24px 64px;
+
+  @media (max-width: 768px) {
+    padding: 100px 16px 48px;
+  }
 }
 
 .page-eyebrow {

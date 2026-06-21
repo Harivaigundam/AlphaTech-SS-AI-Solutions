@@ -1,5 +1,9 @@
 .page-hero {
   padding: 120px 24px 64px;
+
+  @media (max-width: 768px) {
+    padding: 100px 16px 48px;
+  }
 }
 
 .page-eyebrow {
@@ -28,6 +32,10 @@
 
 .blog-listing {
   padding: 48px 24px 96px;
+
+  @media (max-width: 768px) {
+    padding: 32px 16px 64px;
+  }
 }
 
 .blog-grid {
@@ -64,6 +72,11 @@
       color: #10b981;
       transform: translateX(4px);
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+    border-radius: 12px;
   }
 }
 
@@ -162,6 +175,10 @@
   padding: 80px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 48px 16px;
+  }
 }
 
 .newsletter-title {

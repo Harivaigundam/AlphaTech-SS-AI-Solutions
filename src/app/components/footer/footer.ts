@@ -13,11 +13,6 @@ export class Footer {
   showToast = false;
   showPricing = false;
 
-  scrollToHomeContact(event: Event) {
-    event.preventDefault();
-    window.location.href = '/#contact';
-  }
-
   showConnectToast(event: Event) {
     event.preventDefault();
     this.showToast = true;

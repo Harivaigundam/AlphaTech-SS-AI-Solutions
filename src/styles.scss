@@ -52,6 +52,10 @@ input, textarea {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
 }
 
 // Sheen overlay base (used by cards, buttons, nav items)
@@ -347,4 +351,57 @@ input, textarea {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+// Global responsive utilities
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+}
+
+// Mobile bottom navigation padding
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 80px;
+  }
+}
+
+// Touch-friendly tap targets
+@media (pointer: coarse) {
+  .nav-link,
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+// Safe area insets for modern mobile browsers
+@supports (padding: env(safe-area-inset-bottom)) {
+  .mobile-bottom-nav {
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  }
 }

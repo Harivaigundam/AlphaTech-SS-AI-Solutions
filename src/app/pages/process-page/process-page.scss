@@ -1,5 +1,9 @@
 .page-hero {
   padding: 120px 24px 64px;
+
+  @media (max-width: 768px) {
+    padding: 100px 16px 48px;
+  }
 }
 
 .page-eyebrow {
@@ -29,6 +33,10 @@
 .timeline-section {
   padding: 80px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  @media (max-width: 768px) {
+    padding: 48px 16px;
+  }
 }
 
 .timeline {
@@ -79,6 +87,13 @@
       color: rgba(16, 185, 129, 0.2);
     }
   }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 12px;
+  }
 }
 
 .step-number {
@@ -86,6 +101,10 @@
   font-weight: 800;
   color: rgba(255, 255, 255, 0.06);
   line-height: 1;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 }
 
 .step-content {
@@ -620,6 +639,10 @@
 .engagement-section {
   padding: 96px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  @media (max-width: 768px) {
+    padding: 64px 16px;
+  }
 }
 
 .section-header {
@@ -725,6 +748,10 @@
 .faq-section {
   padding: 96px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  @media (max-width: 768px) {
+    padding: 64px 16px;
+  }
 }
 
 .faq-list {
@@ -757,6 +784,10 @@
   padding: 96px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 64px 16px;
+  }
 }
 
 .cta-title {
